@@ -1,5 +1,4 @@
 #include "ofMain.h"
-#define KINECT
 #include "ofxFurry.h"
 #include "ofxKinect.h"
 

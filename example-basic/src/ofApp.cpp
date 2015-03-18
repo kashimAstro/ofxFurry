@@ -14,11 +14,9 @@ void ofApp::update(){
 void ofApp::draw(){
        ofBackground(ofColor(0));
        cam.begin();
-
-       furry.begin( cam, ofVec3f(1.,0.,0.), 4.2, 0.7f, ofSignedNoise( ofGetElapsedTimef() ));
+           furry.begin( cam, ofVec3f(1.,0.,0.), 4.2, 0.7f, ofSignedNoise( ofGetElapsedTimef() ) );
             ofDrawSphere(1.f);
-       furry.end();
-
+           furry.end();
        cam.end();
 }
 

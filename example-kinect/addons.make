@@ -1,0 +1,4 @@
+ofxDelaunay
+ofxKinect
+ofxFurry
+ofxGui

@@ -11,6 +11,7 @@ void ofApp::setup(){
         gui.add(alpha.set("alpha color",0.7f,0.f,1.f));
         gui.add(hairLeng.set("fur leng",4.5,-50.f,50.f));
         gui.add(noise.set("noise",true));
+        gui.add(tassellation.set("no tassellation",true));
 }
 
 void ofApp::update(){
@@ -26,11 +27,11 @@ void ofApp::draw(){
                 n = ofSignedNoise( ofGetElapsedTimef() );
            }
 
-           furry.begin( cam, translateA, color, hairLeng, alpha, n );
+           furry.begin( cam, translateA, color, hairLeng, alpha, n, tassellation );
             ofDrawSphere(1.f);
            furry.end();
 
-           furry.begin( cam, translateB, color, hairLeng, alpha, n );
+           furry.begin( cam, translateB, color, hairLeng, alpha, n, tassellation );
             ofDrawCylinder(25.f, 20.f);
            furry.end();
        cam.end();

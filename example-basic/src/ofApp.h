@@ -14,6 +14,7 @@ class ofApp : public ofBaseApp{
         ofParameter<float> alpha;
         ofParameter<float> hairLeng;
         ofParameter<bool> noise;
+        ofParameter<bool> tassellation;
 
         void setup();
         void update();

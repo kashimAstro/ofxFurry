@@ -9,7 +9,7 @@ void ofxFurry::initfurry(int _pointSkip, int _dist) {
     /* GLSL */
     string shaderProgGeom = STRINGIFY(
         \n#version 150\n
-        \n#define N 9\n
+        \n#define N 50\n // modify
         layout(triangles) in;
         layout(line_strip) out;
         layout(max_vertices = N) out;
@@ -20,11 +20,12 @@ void ofxFurry::initfurry(int _pointSkip, int _dist) {
         uniform float noTass;
         uniform mat4 projection;
         uniform mat4 modelview;
-        uniform vec4 radius=vec4(1.);
+
         out float stime;
         out vec3 fcolor;
         out vec3 weight;
         void main() {
+                  vec4 radius = vec4(1.);
                   stime=time;
                   vec3 a = vec3(gl_in[1].gl_Position - gl_in[0].gl_Position);
                   vec3 b = vec3(gl_in[2].gl_Position - gl_in[0].gl_Position);

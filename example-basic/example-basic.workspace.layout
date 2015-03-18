@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_layout_file>
-	<ActiveProject path="example-basic.cbp" />
+	<ActiveProject path="../example-kinect/example-kinect.cbp" />
 	<PreferredTarget name="Debug" />
 </CodeBlocks_workspace_layout_file>

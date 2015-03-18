@@ -1,6 +1,6 @@
 Kinect point cloud furry and tessellation 
 
-dependencies: ofxDelaunay, ofxKinect (only kinect example)
+dependencies: ofxDelaunay, ofxKinect
 
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/master/1.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/master/2.png)

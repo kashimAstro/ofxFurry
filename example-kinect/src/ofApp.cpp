@@ -24,7 +24,7 @@ void ofApp::draw(){
 
        cam.begin();
        cam.setScale(1,-1,1);
-       furry.begin( cam, ofVec3f(0.,0.65,1.), 85.5, 0.6f, 0.f );
+       furry.begin( cam, ofVec3f(0,0,0), ofVec3f(0.,0.65,1.), 85.5, 0.6f, 0.f );
             furry.kinectMesh();
        furry.end();
        cam.end();

@@ -194,24 +194,28 @@ void ofxFurry::drawDebug() {
     ofPopMatrix();
 }
 
-void ofxFurry::begin(ofEasyCam cam, ofVec3f color, float hairLeng, float alpha , float noise ,  bool noTassellation){
-    glEnable(GL_DEPTH_TEST);
-    shader.begin();
+void ofxFurry::begin(ofEasyCam cam, ofVec3f translate, ofVec3f color, float hairLeng, float alpha, float noise, bool noTassellation){
+
+        ofMatrix4x4 camdist;
+        camdist.preMultTranslate(translate); //no good
+
+        ofEnableDepthTest();
+        shader.begin();
         shader.setUniform1f("hairLeng",hairLeng);
-    shader.setUniform1f("timex",noise );
-    float tass=0.;
-    if(noTassellation==true)
-          tass = 1.;
+        shader.setUniform1f("timex",noise );
+        float tass=0.;
+        if(noTassellation==true)
+            tass = 1.;
         shader.setUniform1f("noTass",tass);
         shader.setUniformMatrix4f("projection",cam.getProjectionMatrix());
-        shader.setUniformMatrix4f("modelview", cam.getModelViewMatrix());
+        shader.setUniformMatrix4f("modelview", cam.getModelViewMatrix()*camdist);
         shader.setUniform1f("alpha", alpha);
         shader.setUniform3f("colored", color.x,color.y,color.z);
 }
 
 void ofxFurry::end(){
     shader.end();
-    glDisable(GL_DEPTH_TEST);
+    ofDisableDepthTest();
 }
 
 /*end*/

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="example-basic">
-		<Project filename="example-basic.cbp" active="1">
+		<Project filename="example-basic.cbp">
 			<Depends filename="../../../libs/openFrameworksCompiled/project/linux64/libopenFrameworks.cbp" />
 		</Project>
 		<Project filename="../../../libs/openFrameworksCompiled/project/linux64/libopenFrameworks.cbp" />
+		<Project filename="../example-kinect/example-kinect.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

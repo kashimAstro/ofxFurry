@@ -2,3 +2,4 @@ ofxDelaunay
 ofxKinect
 ofxFurry
 ofxGui
+ofxAssimpModelLoader

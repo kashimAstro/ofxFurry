@@ -1,6 +1,8 @@
-Kinect point cloud furry and tessellation 
+#ofxFurry
 
-dependencies: ofxDelaunay, ofxKinect
+Mesh and Kinect point cloud apply furry and tessellation in geometry shader
+
+dependencies: ofxDelaunay, ofxKinect 
 
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/master/1.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/master/2.png)

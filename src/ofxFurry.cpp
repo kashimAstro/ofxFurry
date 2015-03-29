@@ -1,7 +1,7 @@
 #include "ofMain.h"
 #include "ofxFurry.h"
 
-void ofxFurry::initfurry(int _pointSkip, int _dist) {
+void ofxFurry::initfurry(int _pointSkip, int _dist, int _steps) {
     shader.setGeometryInputType(GL_LINES);
     shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
     shader.setGeometryOutputCount((5 + 1) * (4 + 1) * 2);
@@ -9,7 +9,7 @@ void ofxFurry::initfurry(int _pointSkip, int _dist) {
     /* GLSL */
     string shaderProgGeom = STRINGIFY(
         \n#version 150\n
-        \n#define N 50\n // modify
+        \n#define N 50\n
         layout(triangles) in;
         layout(line_strip) out;
         layout(max_vertices = N) out;
@@ -20,7 +20,6 @@ void ofxFurry::initfurry(int _pointSkip, int _dist) {
         uniform float noTass;
         uniform mat4 projection;
         uniform mat4 modelview;
-
         out float stime;
         out vec3 fcolor;
         out vec3 weight;
@@ -98,13 +97,19 @@ void ofxFurry::initfurry(int _pointSkip, int _dist) {
 
     printf("Max output vertices: %i\n", shader.getGeometryMaxOutputCount());
 
+    #if defined(KINECT)
     blob.allocate(640,480,OF_IMAGE_GRAYSCALE);
     colorAlpha=255;
     pointSkip=_pointSkip;
     distnect=_dist;
+    #endif // KINECT
 }
 
-void ofxFurry::generatedMesh(ofxKinect &kinect) {
+#if defined(KINECT)
+void ofxFurry::generatedMesh(ofxKinect &kinect,int _dist,int _dist2) {
+    distnect=_dist;
+    distnect2=_dist2;
+
     del.reset();
     unsigned char* pix = new unsigned char[640*480];
     for(int x=0;x<640;x+=1) {
@@ -126,7 +131,7 @@ void ofxFurry::generatedMesh(ofxKinect &kinect) {
                 ofVec3f wc = kinect.getWorldCoordinateAt(x, y);
                 wc.x = x - 320.0;
                         wc.y = y - 240.0;
-                if(abs(wc.z) > 100 && abs(wc.z ) < 2000) { //
+                if(abs(wc.z) > 100 && abs(wc.z ) < distnect2) { //
                     wc.z = -wc.z;
                         wc.x += ofSignedNoise(wc.x,wc.z)*noiseAmount;
                                     wc.y += ofSignedNoise(wc.y,wc.z)*noiseAmount;
@@ -194,11 +199,12 @@ void ofxFurry::drawDebug() {
     convertedMesh.drawWireframe();
     ofPopMatrix();
 }
+#endif // KINECT
 
 void ofxFurry::begin(ofEasyCam cam, ofVec3f translate, ofVec3f color, float hairLeng, float alpha, float noise, bool noTassellation){
 
         ofMatrix4x4 camdist;
-        camdist.preMultTranslate(translate); //no good
+        camdist.preMultTranslate(translate); // :|
 
         ofEnableDepthTest();
         shader.begin();

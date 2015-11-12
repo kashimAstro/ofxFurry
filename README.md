@@ -24,6 +24,13 @@ return in a few days for addons stable.
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/19.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/20.png)
 
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/23.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/24.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/25.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/26.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/27.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/28.png)
+
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/kinect1.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/kinect2.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/kinect3.png)

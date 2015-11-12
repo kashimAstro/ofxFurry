@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include "glsl.h"
 //#ifdef KINECT_MODE
 //        #pragma message("KINECT_MODE=ACTIVED")
 	#include "ofxKinect.h"
@@ -10,6 +11,7 @@ class ofxFurry : public ofBaseApp{
  public:
    ofShader shader;
    THKinect tkinect;
+   glsl glslContext;
    int dist1,dist2;
    void setSteps(int steps);
    void setDistance1(int dist);

@@ -1,6 +1,5 @@
 #include "ofxFurry.h"
 
-      
 void ofxFurry::exit(){
 //	tkinect.exit();
 }
@@ -10,7 +9,16 @@ void ofxFurry::setupKinect(int _dist1, int _dist2){
 	shader.setGeometryInputType(GL_POINTS);
 	shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
 	shader.setGeometryOutputCount((5 + 1) * (4 + 1) * 2);
-	shader.load("shaders/render.vert","shaders/render.frag","shaders/render.geom");
+        //shader.load("shaders/render.vert","shaders/render.frag","shaders/render.geom");
+
+	vector<string> str_shader = glslContext.getFurry();
+        ofLog()<<"SIZE-SHADER::"<<str_shader.size();
+        /* GLSL */
+        shader.setupShaderFromSource(GL_GEOMETRY_SHADER_EXT, str_shader[2]);
+        shader.setupShaderFromSource(GL_VERTEX_SHADER,       str_shader[0]);
+        shader.setupShaderFromSource(GL_FRAGMENT_SHADER,     str_shader[1]);
+        shader.linkProgram();
+
 	tkinect.init();
 	tkinect.setDistance(dist1);
 	tkinect.setDistance2(dist2);
@@ -43,7 +51,16 @@ void ofxFurry::setup(){
 	shader.setGeometryInputType(GL_POINTS);
 	shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
 	shader.setGeometryOutputCount((5 + 1) * (4 + 1) * 2);
-	shader.load("shaders/render.vert","shaders/render.frag","shaders/render.geom");
+//	shader.load("shaders/render.vert","shaders/render.frag","shaders/render.geom");
+	vector<string> str_shader = glslContext.getFurry();
+        ofLog()<<"SIZE-SHADER::"<<str_shader.size();
+        /* GLSL */
+        shader.setupShaderFromSource(GL_GEOMETRY_SHADER_EXT, str_shader[2]);
+        shader.setupShaderFromSource(GL_VERTEX_SHADER,       str_shader[0]);
+        shader.setupShaderFromSource(GL_FRAGMENT_SHADER,     str_shader[1]);
+        shader.linkProgram();
+
+
 }
 //#endif
 

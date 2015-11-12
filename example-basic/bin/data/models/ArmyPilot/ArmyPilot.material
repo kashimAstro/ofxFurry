@@ -1,0 +1,67 @@
+material 
+{
+	technique
+	{
+		pass
+		{
+		}
+	}
+}
+
+material unity_pilot_head_01
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235
+			diffuse 0.588235 0.588235 0.588235
+			specular 0 0 0 0.015625
+			emissive 0 0 0
+
+			texture_unit
+			{
+				texture C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\head01.png
+				filtering point point point
+			}
+		}
+	}
+}
+material unity_pilot_body_01
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235
+			diffuse 0.588235 0.588235 0.588235
+			specular 0 0 0 0.015625
+			emissive 0 0 0
+
+			texture_unit
+			{
+				texture C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\body01.png
+				filtering point point point
+			}
+		}
+	}
+}
+material m4
+{
+	technique
+	{
+		pass
+		{
+			ambient 1 1 1
+			diffuse 1 1 1
+			specular 1 1 1 40
+			emissive 1 1 1
+
+			texture_unit
+			{
+				texture C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\m4tex.png
+				filtering point point point
+			}
+		}
+	}
+}

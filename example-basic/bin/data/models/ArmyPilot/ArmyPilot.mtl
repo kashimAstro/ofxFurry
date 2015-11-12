@@ -1,0 +1,31 @@
+# Wavefront MTL
+# Created by fragMOTION
+# http://www.fragmosoft.com
+
+newmtl unity_pilot_head_01
+illum 2
+d 1
+ka 0.588235 0.588235 0.588235
+kd 0.588235 0.588235 0.588235
+ks 0 0 0
+ke 0 0 0
+ns 0.015625
+map_kd C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\head01.png
+newmtl unity_pilot_body_01
+illum 2
+d 1
+ka 0.588235 0.588235 0.588235
+kd 0.588235 0.588235 0.588235
+ks 0 0 0
+ke 0 0 0
+ns 0.015625
+map_kd C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\body01.png
+newmtl m4
+illum 2
+d 1
+ka 1 1 1
+kd 1 1 1
+ks 1 1 1
+ke 1 1 1
+ns 40
+map_kd C:\Users\Nathan\Documents\New Project\Assets\Textures\soldier\m4tex.png

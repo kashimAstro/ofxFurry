@@ -1,4 +1,3 @@
-ofxDelaunay
-ofxKinect
-ofxFurry
 ofxGui
+ofxFurry2
+ofxKinect

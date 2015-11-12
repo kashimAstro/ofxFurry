@@ -1,44 +1,26 @@
-#ifndef _OFXFURRY
-#define _OFXFURRY
-
+#pragma once
 #include "ofMain.h"
+//#ifdef KINECT_MODE
+//        #pragma message("KINECT_MODE=ACTIVED")
+	#include "ofxKinect.h"
+	#include "THKinect.h"
+//#endif
 
-#define KINECT // comment not use kinect
+class ofxFurry : public ofBaseApp{
+ public:
+   ofShader shader;
+   THKinect tkinect;
+   int dist1,dist2;
+   void setSteps(int steps);
+   void setDistance1(int dist);
+   void setDistance2(int dist2);
+   void kinectMesh(int i);   
+   void setupKinect(int _dist1=1100, int _dist2=1200);
+   void update(ofxKinect *kinect);
 
-#if defined(KINECT)
-    #include "ofxDelaunay.h"
-    #include "ofxKinect.h"
-#endif
+   void setup();
 
-#define STRINGIFY(A) #A
-
-class ofxFurry : public ofBaseApp {
-
-	public:
-        #if defined(KINECT)
-        int colorAlpha;
-        ofVboMesh convertedMesh;
-        ofxDelaunay del;
-        ofImage blob;
-        float noiseAmount;
-        int pointSkip;
-        int distnect;
-	int distnect2;
-        #endif // KINECT
-
-        float alpha;
-        float hairLeng;
-        ofVec3f color;
-        ofShader shader;
-
-        void initfurry(int _pointSkip = 6, int _dist=1100, int _steps=50 );
-        void begin(ofEasyCam cam, ofVec3f translate, ofVec3f color, float hairLeng = 2.2, float alpha = 1.f, float noise = 0.f,  bool noTassellation=true);
-        void end();
-
-        #if defined(KINECT)
-        void generatedMesh(ofxKinect &kinect, int _dist=1100, int _dist2=1200);
-        void drawDebug();
-        void kinectMesh();
-        #endif // KINECT
+   void exit();
+   void begin(ofEasyCam cam, float hairLeng=0.5, ofVec3f translate=ofVec3f(0,0,0), float time=ofGetElapsedTimef(), ofVec3f color=ofVec3f(0.2,0.3,0.9),int types=1);
+   void end();
 };
-#endif

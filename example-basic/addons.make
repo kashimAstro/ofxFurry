@@ -1,5 +1,3 @@
-ofxDelaunay
-ofxKinect
-ofxFurry
 ofxGui
-ofxAssimpModelLoader
+ofxFurry2
+ofxKinect

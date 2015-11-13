@@ -27,8 +27,19 @@ void ofApp::setup(){
 	cam.setVFlip(false);
 }
 
+int speedanim = 70;
+int counter = 0;
+float animationPosition;
+
 void ofApp::update(){
 	ofSetWindowTitle(ofToString(ofGetFrameRate()));
+	model.update();
+        animationPosition = ofMap(counter,0,speedanim,0.0,1.0);
+        counter++;
+        if(counter>speedanim)
+          counter=0;
+        model.setPositionForAllAnimations(animationPosition);
+        mesh = model.getCurrentAnimatedMesh(0);
 }
 
 void ofApp::draw(){

@@ -63,12 +63,19 @@ void ofxFurry::setup(){
 
 }
 //#endif
+void ofxFurry::setExternalMatrix(ofMatrix4x4 mat, bool check){
+	Mmat = mat;
+	Mcheck = check;
+}
 
 void ofxFurry::begin(ofEasyCam cam, float hairLeng, ofVec3f translate, float time, ofVec3f color,int types){
 	ofMatrix4x4 camdist;
 	camdist.preMultTranslate(translate);
 	shader.begin();
-	shader.setUniformMatrix4f("viewMatrix",cam.getModelViewProjectionMatrix());
+	if(Mcheck)
+		shader.setUniformMatrix4f("viewMatrix", Mmat*camdist);
+	else
+		shader.setUniformMatrix4f("viewMatrix",cam.getModelViewProjectionMatrix());
 	shader.setUniformMatrix4f("projectionMatrix",cam.getProjectionMatrix());
 	shader.setUniformMatrix4f("modelMatrix", cam.getModelViewMatrix()*camdist);
 	shader.setUniform1f("time",time);

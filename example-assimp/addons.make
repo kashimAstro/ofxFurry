@@ -1,0 +1,4 @@
+ofxGui
+ofxFurry2
+ofxKinect
+ofxAssimpModelLoader

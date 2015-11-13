@@ -12,6 +12,8 @@ class ofxFurry : public ofBaseApp{
    ofShader shader;
    THKinect tkinect;
    glsl glslContext;
+   ofMatrix4x4 Mmat;
+   bool Mcheck;
    int dist1,dist2;
    void setSteps(int steps);
    void setDistance1(int dist);
@@ -21,7 +23,7 @@ class ofxFurry : public ofBaseApp{
    void update(ofxKinect *kinect);
 
    void setup();
-
+   void setExternalMatrix(ofMatrix4x4 mat,bool check);
    void exit();
    void begin(ofEasyCam cam, float hairLeng=0.5, ofVec3f translate=ofVec3f(0,0,0), float time=ofGetElapsedTimef(), ofVec3f color=ofVec3f(0.2,0.3,0.9),int types=1);
    void end();

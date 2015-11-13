@@ -1,0 +1,4 @@
+#!/bin/sh
+result=${PWD##*/}
+
+optirun ./bin/${result}

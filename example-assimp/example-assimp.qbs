@@ -12,18 +12,13 @@ Project{
         name: { return FileInfo.baseName(path) }
 
         files: [
-	    'src/Delaunay.cpp'
-            'src/Delaunay.h'
-            'src/main.cpp'
-            'src/ofxDelaunay.cpp'
-            'src/ofxDelaunay.h'
-            'src/ofxFurry.cpp'
-            'src/ofxFurry.h'
-            'src/THKinect.h'
+            'src/ofApp.cpp',
+            'src/ofApp.h',
+            'src/main.cpp',
         ]
 
         of.addons: [
-		'ofxGui','ofxKinect'
+        'ofxGui','ofxKinect','ofxFurry2','ofxAssimpModelLoader'
         ]
 
         // additional flags for the project. the of module sets some

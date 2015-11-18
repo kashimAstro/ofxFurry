@@ -27,7 +27,7 @@ void ofApp::setup(){
 	cam.setVFlip(false);
 }
 
-int speedanim = 70;
+int speedanim = 220;
 int counter = 0;
 float animationPosition;
 

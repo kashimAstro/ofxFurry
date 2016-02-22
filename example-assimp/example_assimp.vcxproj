@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+		<Keyword>Win32Proj</Keyword>
+		<RootNamespace>example_assimp</RootNamespace>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxKinect\libs;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libfreenect\platform;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libusb-1.0;..\..\..\addons\ofxKinect\libs\libusb-win32;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\..\addons\ofxKinect\libs\libusb-win32\lib;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\msys2;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\license;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\src\extra;..\..\..\addons\ofxFurry2\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib;libusb.lib;libusbd.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxKinect\libs;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libfreenect\platform;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libusb-1.0;..\..\..\addons\ofxKinect\libs\libusb-win32;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\..\addons\ofxKinect\libs\libusb-win32\lib;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\msys2;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\license;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\src\extra;..\..\..\addons\ofxFurry2\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib;libusb.lib;libusbd.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxKinect\libs;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libfreenect\platform;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libusb-1.0;..\..\..\addons\ofxKinect\libs\libusb-win32;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\..\addons\ofxKinect\libs\libusb-win32\lib;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\msys2;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\license;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\src\extra;..\..\..\addons\ofxFurry2\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib;libusb.lib;libusbd.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxKinect\libs;..\..\..\addons\ofxKinect\libs\libfreenect;..\..\..\addons\ofxKinect\libs\libfreenect\include;..\..\..\addons\ofxKinect\libs\libfreenect\platform;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui audio\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui camera\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\amd64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\ia64;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\license\libusb-win32;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\inf\xbox nui motor\x86;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu;..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0;..\..\..\addons\ofxKinect\libs\libfreenect\src;..\..\..\addons\ofxKinect\libs\libusb-1.0;..\..\..\addons\ofxKinect\libs\libusb-win32;..\..\..\addons\ofxKinect\libs\libusb-win32\include;..\..\..\addons\ofxKinect\libs\libusb-win32\lib;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\msys2;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\Win32;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\license;..\..\..\addons\ofxKinect\src;..\..\..\addons\ofxKinect\src\extra;..\..\..\addons\ofxFurry2\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib;libusb.lib;libusbd.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\addons\ofxKinect\libs\libusb-win32\lib\vs\x64</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="src\main.cpp" />
+		<ClCompile Include="src\ofApp.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\src\ofxKinect.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\audio.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\core.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\flags.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\keep_alive.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\tilt.c" />
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.c" />
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\Delaunay.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\glsl.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\ofxDelaunay.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\ofxFurry.cpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\ofxBase3DVideo.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\ofxKinect.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect_audio.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect_registration.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusb.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_internal.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads_win32.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\flags.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\keep_alive.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0\libusb.h" />
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h" />
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\Delaunay.h" />
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\glsl.h" />
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\ofxDelaunay.h" />
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\ofxFurry.h" />
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\THKinect.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+			<Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc">
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+		</ResourceCompile>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties RESOURCE_FILE="icon.rc" />
+		</VisualStudio>
+	</ProjectExtensions>
+</Project>

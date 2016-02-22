@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.cpp">
+			<Filter>addons\ofxKinect\src\extra</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\src\ofxKinect.cpp">
+			<Filter>addons\ofxKinect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.cpp">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu.cpp">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\audio.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\core.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\flags.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\keep_alive.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\tilt.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.c">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.cpp">
+			<Filter>other</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu.cpp">
+			<Filter>other</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\Delaunay.cpp">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\glsl.cpp">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\ofxDelaunay.cpp">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFurry2\src\ofxFurry.cpp">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader">
+			<UniqueIdentifier>{DE65D9F7-840A-CD0A-A555-EA3B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\src">
+			<UniqueIdentifier>{B84008DC-4B5E-271B-05DA-D8C8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\libs">
+			<UniqueIdentifier>{3D854F79-FA4A-75FA-FC0A-2B25}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp">
+			<UniqueIdentifier>{FE8B5295-D3A7-B9CD-89C9-2613}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include">
+			<UniqueIdentifier>{EDC34C4F-5D44-FB76-337E-EE48}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp">
+			<UniqueIdentifier>{E66BABFA-76A1-EB8D-40FF-B940}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler">
+			<UniqueIdentifier>{A0C31C2E-6C01-8850-3B72-C818}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxGui">
+			<UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxGui\src">
+			<UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect">
+			<UniqueIdentifier>{B7F05916-2DAA-8604-92E8-9A28}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\src">
+			<UniqueIdentifier>{C16604A1-D9F2-E615-4352-057F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\src\extra">
+			<UniqueIdentifier>{7EB153FE-B71B-8161-D6DE-947F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs">
+			<UniqueIdentifier>{3BE4DDBD-E9EF-0189-E5FD-4477}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect">
+			<UniqueIdentifier>{6416D445-F422-712E-EDA0-F45E}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\include">
+			<UniqueIdentifier>{F7A2459D-BD30-38D3-05BB-4653}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\platform">
+			<UniqueIdentifier>{7103C6E1-7CB0-0812-CF4A-0C3F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\platform\windows">
+			<UniqueIdentifier>{6FC8E074-DEF7-EC60-8276-5D23}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu">
+			<UniqueIdentifier>{BA4C2EF6-D0B5-7776-4EAC-8747}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0">
+			<UniqueIdentifier>{3454A2E9-B42D-4841-319D-5EC4}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libfreenect\src">
+			<UniqueIdentifier>{62D6194F-F881-A1EE-EF63-07E8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libusb-1.0">
+			<UniqueIdentifier>{5838B809-7FFE-7F4F-F59D-CD6F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libusb-1.0\include">
+			<UniqueIdentifier>{E7C89560-D6AC-0A54-F045-7C6A}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0">
+			<UniqueIdentifier>{18315E5D-B960-517E-8B9F-6870}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libusb-win32">
+			<UniqueIdentifier>{8A8ECFF4-1224-885A-A8CA-E99F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinect\libs\libusb-win32\include">
+			<UniqueIdentifier>{D1AFEAD3-991A-EAD4-639C-4098}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="other">
+			<UniqueIdentifier>{A2230F47-9F6B-908F-FF0E-E006}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFurry2">
+			<UniqueIdentifier>{D3C7B21F-5D42-1B38-9023-B531}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFurry2\src">
+			<UniqueIdentifier>{61E4489C-B176-1D30-8488-9F23}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h">
+			<Filter>addons\ofxAssimpModelLoader\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h">
+			<Filter>addons\ofxAssimpModelLoader\libs\assimp\include\assimp</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\extra\ofxKinectExtras.h">
+			<Filter>addons\ofxKinect\src\extra</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\ofxBase3DVideo.h">
+			<Filter>addons\ofxKinect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\src\ofxKinect.h">
+			<Filter>addons\ofxKinect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect_audio.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\include\libfreenect_registration.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\failguard.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusb.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_internal.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0\libusbemu_threads_win32.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows\libusb10emu\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\stdbool.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\platform\windows\unistd.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\platform\windows</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\cameras.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\flags.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\freenect_internal.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\keep_alive.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\loader.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\registration.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libfreenect\src\usb_libusb10.h">
+			<Filter>addons\ofxKinect\libs\libfreenect\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0\libusb.h">
+			<Filter>addons\ofxKinect\libs\libusb-1.0\include\libusb-1.0</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinect\libs\libusb-win32\include\lusb0_usb.h">
+			<Filter>addons\ofxKinect\libs\libusb-win32\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\Delaunay.h">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\glsl.h">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\ofxDelaunay.h">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\ofxFurry.h">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFurry2\src\THKinect.h">
+			<Filter>addons\ofxFurry2\src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>

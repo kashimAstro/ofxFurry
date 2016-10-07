@@ -5,6 +5,12 @@ void ofxFurry::exit(){
 }
 
 void ofxFurry::setupKinect(int _dist1, int _dist2){
+	colors    = ofVec3f(0.2,0.3,0.9);
+	translate = ofVec3f(0,0,0);
+	types     = 1;
+	time      = ofGetElapsedTimef();
+	len       = 10.0f;
+	NOTex     = 0;
 	ofDisableArbTex();
 	shader.setGeometryInputType(GL_POINTS);
 	shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
@@ -47,6 +53,13 @@ void ofxFurry::update(ofxKinect * kinect){
 }
 //#else
 void ofxFurry::setup(){
+	colors    = ofVec3f(0.2,0.3,0.9);
+	translate = ofVec3f(0,0,0);
+	types     = 1;
+	time      = ofGetElapsedTimef();
+	len       = 10.0f;
+	NOTex     = 0;
+
 	ofDisableArbTex();
 	shader.setGeometryInputType(GL_POINTS);
 	shader.setGeometryOutputType(GL_TRIANGLE_STRIP);
@@ -68,7 +81,32 @@ void ofxFurry::setExternalMatrix(ofMatrix4x4 mat, bool check){
 	Mcheck = check;
 }
 
-void ofxFurry::begin(ofEasyCam cam, float hairLeng, ofVec3f translate, float time, ofVec3f color,int types){
+void ofxFurry::setStripLength(float _len){
+	len = _len;	
+}
+
+void ofxFurry::setTranslate(ofVec3f _tr){
+	translate = _tr;		
+}
+
+void ofxFurry::setMoveTime(float _time){
+	time = _time;
+}
+
+void ofxFurry::setColors(ofVec3f _col){
+	colors = _col;	
+}
+
+void ofxFurry::setTypes(int _ty){
+	types = _ty;
+}
+
+void ofxFurry::setTexture(ofTexture _tex){
+	tex = _tex;
+	NOTex = 1;
+}
+
+void ofxFurry::begin(ofEasyCam cam){//float hairLeng, ofVec3f translate, float time, ofVec3f color,int types){
 	ofMatrix4x4 camdist;
 	camdist.preMultTranslate(translate);
 	shader.begin();
@@ -79,9 +117,15 @@ void ofxFurry::begin(ofEasyCam cam, float hairLeng, ofVec3f translate, float tim
 	shader.setUniformMatrix4f("projectionMatrix",cam.getProjectionMatrix());
 	shader.setUniformMatrix4f("modelMatrix", cam.getModelViewMatrix()*camdist);
 	shader.setUniform1f("time",time);
-	shader.setUniform1f("hairLeng",hairLeng);
-	shader.setUniform3f("colors",color.x,color.y,color.z);
+	shader.setUniform1f("hairLeng",len);
+	shader.setUniform3f("colors",colors.x,colors.y,colors.z);
 	shader.setUniform1i("polygonTypes",types);
+
+	shader.setUniform1i("NOTex",NOTex);
+	if(NOTex == 1)
+	{
+		shader.setUniformTexture("texture",tex,0);
+	}
 	/*if(rectangle.inside(ofGetMouseX(),ofGetMouseY())){
 	 ofLog()<<"inside sphere!";
 	 shader.setUniform2f("collisionCoord",ofGetMouseX(),ofGetMouseY());

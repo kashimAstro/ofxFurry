@@ -47,6 +47,11 @@
       if(kinect.isFrameNew()){
          furry.update(&kinect);
       }
+      furry.setStripLength(hair);
+      furry.setTranslate(translate);
+      furry.setMoveTime(ofGetElapsedTimef()*timer);
+      furry.setColors(color);
+      furry.setTypes(types);
    }
 
    void ofApp::draw(){
@@ -55,12 +60,12 @@
       ofEnableDepthTest();
           
       if(wireframe){
-            furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
-            furry.kinectMesh(0);
+            furry.begin(cam);
+	            furry.kinectMesh(0);
             furry.end();
       }else{
-            furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
-            furry.kinectMesh(1);
+            furry.begin(cam);
+       		    furry.kinectMesh(1);
             furry.end();
       }    
       ofDisableDepthTest();

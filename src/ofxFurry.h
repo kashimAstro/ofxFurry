@@ -7,7 +7,7 @@
 	#include "THKinect.h"
 //#endif
 
-class ofxFurry : public ofBaseApp{
+class ofxFurry {
  public:
    ofShader shader;
    THKinect tkinect;
@@ -22,9 +22,25 @@ class ofxFurry : public ofBaseApp{
    void setupKinect(int _dist1=1100, int _dist2=1200);
    void update(ofxKinect *kinect);
 
+   void setStripLength(float _len);
+   void setTranslate(ofVec3f _tr);
+   void setMoveTime(float _time);
+   void setColors(ofVec3f _col);
+   void setTypes(int _ty);
+   void setTexture(ofTexture _tex);
+
+
+   ofVec3f colors;
+   ofVec3f translate;
+   int types;
+   float time;
+   float len;
+   ofTexture tex;
+   int NOTex;
+
    void setup();
    void setExternalMatrix(ofMatrix4x4 mat,bool check);
    void exit();
-   void begin(ofEasyCam cam, float hairLeng=0.5, ofVec3f translate=ofVec3f(0,0,0), float time=ofGetElapsedTimef(), ofVec3f color=ofVec3f(0.2,0.3,0.9),int types=1);
+   void begin(ofEasyCam cam);
    void end();
 };

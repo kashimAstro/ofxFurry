@@ -1,3 +1,3 @@
 ofxGui
-ofxFurry2
+ofxFurry
 ofxKinect

@@ -215,35 +215,45 @@ vector<string> glsl::getFurry() {
  
     string vertexShader = STRINGIFY(
 	\n#version 330 compatibility\n
+	in vec2 texCoord;
+
 	out VertexAttrib {
 	      vec3 normal;
 	      vec4 color;
+	      vec2 texCoord;
 	} vertex;
 	void main() {
-	      gl_Position = gl_Vertex;
-	      vertex.normal =  gl_Normal.xyz;
-	      vertex.color =  vec4(1.0, 1.0, 0.0, 1.0);
+	      gl_Position      = gl_Vertex;
+	      vertex.normal    = gl_Normal.xyz;
+	      vertex.color     = vec4(1.0, 1.0, 0.0, 1.0);
+	      vertex.texCoord  = texCoord; 
 	}
     );
 
     string fragmentShader = STRINGIFY(
 	\n#version 330 compatibility\n
+	uniform sampler2D texture;
+	uniform int NOTex;
 	in vec4 vertex_color;
 	in vec4 dist;
+	in vec2 texCoordOut;
 	const vec4 WIRE_COL = vec4(1.0,0.0,0.0,1);
 	void main(void) {
 	   //float d = min(dist[0],min(dist[1],dist[2]));
 	   //float I = exp2(-2*d*d);
 	   //vec4 FILL_COL=vec4(vertex_color);
 	   //gl_FragColor = FILL_COL;
-	   gl_FragColor = vertex_color;
+	   if(NOTex == 1){
+		vec4 tt = texture2D(texture,texCoordOut);
+	        gl_FragColor = tt * vertex_color;
+	   }
+	   else{
+	        gl_FragColor = vertex_color;
+	   }
 	}
     );
 
     string geometryShader = STRINGIFY(
-	//\n#version 330 compatibility\n
-	//#define VERT 3
-	//#pragma include "helper.glsl"
 	layout(triangles) in;
 	layout(triangle_strip, max_vertices=6) out;
 	uniform mat4 viewMatrix;
@@ -258,7 +268,13 @@ vector<string> glsl::getFurry() {
 	in VertexAttrib {
 	      vec3 normal;
 	      vec4 color;
+	      vec2 texCoord;
 	} vertex[];
+
+	out VertexData {
+	    vec2 texCoord;
+	    vec3 normal;
+	} VertexOut;
 
 	out vec4 vertex_color;
 	out vec3 dist;
@@ -289,31 +305,6 @@ vector<string> glsl::getFurry() {
            float qe3 = qt0 * q23 + qt1 * q22 - qt2 * q21 + qt3 * q20;
            return vec3(qe1, qe2, qe3);
         }
-        
-	void make_face(vec3 a, vec3 b, vec3 c, mat4 mvMatrix, mat4 mvpMatrix) {
-	    vec3 face_normal = normalize(cross(c - a, c - b));
-
-	    vertex_color = vec4(colors, 1.0);
-	    vec4 p1 = mvpMatrix * mvMatrix * vec4(a,1.0);
-	    p1.x+=snoise(vec2(2.5*p1.x*time,p1.y*time))*map(collisionCoord.x,0,1366,0.0,10.0);
-	    p1.y+=snoise(vec2(4.3*p1.y*time,p1.z*time))*map(collisionCoord.y,0,800,0.0,10.0);
-	    gl_Position = p1;
-	    EmitVertex();
-
-	    vertex_color = vec4(colors,1.0);
-	    vec4 p2 = mvpMatrix * mvMatrix * vec4(b,1.0);
-	    p2.x+=snoise(vec2(2.5*p2.x*time,p2.y*time));//collisionCoord.x;
-	    p2.y+=snoise(vec2(4.3*p2.y*time,p2.z*time));//collisionCoord.y;
-	    gl_Position = p2;
-	    EmitVertex();
-
-	    vertex_color = vec4(colors, 1.0) - snoise(vec2(c.x*time,c.y*time));
-	    vec4 p3 = mvpMatrix * mvMatrix *  vec4(c,1.0);
-	    p3.x+=snoise(vec2(2.5*p3.x*time,p3.y*time));
-	    p3.y+=snoise(vec2(4.3*p3.y*time,p3.z*time));
-	    gl_Position = p3;
-	    EmitVertex();
-	}
 
 	void polygonA(mat4 projectionMatrix, mat4 modelViewMatrix){
 	      vec3 a = vec3(gl_in[1].gl_Position - gl_in[0].gl_Position);
@@ -328,112 +319,164 @@ vector<string> glsl::getFurry() {
 		 position.x += snoise(vec2(.6f*position.x,.2f*position.y) * time);
 		 position.y += snoise(vec2(.4f*position.y,.4f*position.z) * time);
 		 position.z += snoise(vec2(.2f*position.x,.6f*position.y) * time);
+		 VertexOut.texCoord = vertex[i].texCoord; 
 		 gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
 		 EmitVertex();
 	      }
 	}
 
 	void polygonB(mat4 projectionMatrix, mat4 modelViewMatrix){
-	      vec3 stretch = vec3(hairLeng);
-	      vec3 a = gl_in[0].gl_Position.xyz;
-	      vec3 b = gl_in[1].gl_Position.xyz;
-	      vec3 c = gl_in[2].gl_Position.xyz;
-
-	      vec3 d = (a + b) * stretch;
-	      vec3 e = (b + c) * stretch;
-	      vec3 f = (c + a) * stretch;
-	      a *= (2.5 - stretch * rand(a.xy*hairLeng));
-	      b *= (5.5 - stretch * rand(b.xy*hairLeng));
-	      c *= (1.5 - stretch * rand(c.xy*hairLeng));
-
-	      make_face(a,d,f,modelViewMatrix,projectionMatrix);
-	      make_face(d,b,e,modelViewMatrix,projectionMatrix);
-	      make_face(e,c,f,modelViewMatrix,projectionMatrix);
-	      make_face(d,e,f,modelViewMatrix,projectionMatrix);
+		float xtime = 0.3 + time;
+		vec3 lightDir = vec3(1.f,0.5,1.f);
+		vec3 p0 = vec3(gl_in[0].gl_Position);
+                vec3 p1 = vec3(gl_in[1].gl_Position);
+		vec3 up = vec3(0, 0, 1); 
+		vec3 dir = normalize(cross(p1, p0));
+		vec3 right = normalize(cross(dir, up)); 
+		vec3 norm = cross(right, dir);
+		float fColMult = abs(dot(norm, lightDir));
+		vec4 colMult = vec4(fColMult, fColMult, fColMult, 1.0);
+		right *= hairLeng*55.5f;
+		VertexOut.texCoord = vertex[0].texCoord; 
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(p0 - right, 1.0) * xtime;
+		vertex_color = vec4(colors.x,colors.y,colors.z, 1.0);
+		EmitVertex();
+		VertexOut.texCoord = vertex[1].texCoord; 
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(p0 + right, 1.0) * xtime;
+		vertex_color = vec4(colors.x-0.1,colors.y-0.1,colors.z-0.1, 1.0);
+		EmitVertex();
+		VertexOut.texCoord = vertex[2].texCoord; 
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(p1 - right, 1.0) * xtime;
+		vertex_color = vec4(colors.x-0.15,colors.y-0.15,colors.z-0.15, 1.0);
+		EmitVertex();
+//		VertexOut.texCoord = vertex[3].texCoord; 
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(p1 + right, 1.0) * xtime;
+		vertex_color = vec4(colors.x-0.2,colors.y-0.2,colors.z-0.2, 1.0);
+		EmitVertex();
 	}
 
-	void polygonC(mat4 projectionMatrix, mat4 modelViewMatrix) {
-	   vec3 a = vec3(gl_in[1].gl_Position - gl_in[0].gl_Position);
-	   vec3 b = vec3(gl_in[2].gl_Position - gl_in[0].gl_Position);
-	   vec3 normal = normalize(cross(b, a)) * hairLeng - 0.5;
-	   vec3 center = vec3(gl_in[0].gl_Position + gl_in[1].gl_Position + gl_in[2].gl_Position) / 3.0;
-	   float t = hairLeng / float(gl_in.length());
+	void polygonC(mat4 projectionMatrix, mat4 modelViewMatrix){
+	        float radius = hairLeng*55.5f;
+		vec3 p0 = gl_in[0].gl_Position.xyz;
+		vec3 p1 = gl_in[1].gl_Position.xyz;
+		vec3 up = vec3(0, 0, 1);
+		vec3 dir = normalize(p1 - p0);
+		vec3 right = normalize(cross(dir, up));
+		vec3 norm = cross(right, dir);
+		vec3 center = (p0 +p1) / 2.0;
+		float len = distance(p0, p1);
+		int hslices = 5;
+		int vslices = 4;
+		vec3 d;
+		vec3 n;
+		if (len > 190.0) 
+		{
+			len = (20.0 - len) / 5.0 * 5.0;
+		}
+		for (int i = 0; i < hslices; i ++)
+		{
+			float vTheta0 = PI / hslices * i - PI / 2;
+			float cosV0 = cos(vTheta0);
+			float sinV0 = sin(vTheta0);
+			float vTheta1 = PI / hslices * (i + 1) - PI / 2;
+			float cosV1 = cos(vTheta1);
+			float sinV1 = sin(vTheta1);
+			vec3 c0 = center + dir * len / 2 * sinV0;
+			vec3 c1 = center + dir * len / 2 * sinV1;
+			vec3 r0 = right * cosV0;
+			vec3 r1 = right * cosV1;
+			vec3 normal;
+			for (int j = 0; j <= vslices; j ++) {
+				d = quaternionRotation(r0, TWO_PI * j / vslices, dir);
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(c0 + d * radius, 1.0);
+				normal = normalize(d + normalize(c0) / 2.0);
+				vertex_color = vec4(colors.x,colors.y,colors.z, 1.0);
+//				VertexOut.texCoord = vertex[j].texCoord;
+				EmitVertex();
 
-	   vec4 view_pos = vec4(center,1.0) * vec4(normal,1.0);
-       //float tc = snoise(vec2(colors.x,colors.y))*snoise(vec2(colors.z,colors.y));
-	   vertex_color  = vec4(colors,1.0);
-       //view_pos.x    += snoise(vec2(view_pos.x,view_pos.y))*2.0;
-	   gl_Position   = projectionMatrix * modelViewMatrix * view_pos;
-
-	   EmitVertex();
-	}
-
+				d = quaternionRotation(r1, TWO_PI * j / vslices, dir);
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(c1 + d * radius, 1.0);
+				normal = normalize(d + normalize(c1) / 2.0);
+				vertex_color = vec4(colors.x-0.1,colors.y-0.1,colors.z-0.1, 1.0);
+				EmitVertex();
+			}
+		}
+	}	
 	void polygonD(mat4 projectionMatrix, mat4 modelViewMatrix){
-           //float PI = 3.14159265359;
-           //float TWO_PI =  PI * 2;
-           vec3 p0 = gl_in[0].gl_Position.xyz;
-           vec3 p1 = gl_in[1].gl_Position.xyz;
-           vec3 up = vec3(0, 0, 1);
-           vec3 dir = normalize(p1 - p0);
-           vec3 right = normalize(cross(dir, up));
-           vec3 norm = cross(right, dir);
-           vec3 center = (p0 +p1) / 2.0;
-           float len = distance(p0, p1);
-           float radius = 1.0;
-           vec3 normal;
-           if (len > 190.0) {
-                len =(20.0 - len) / 5.0 * 5.0;
-           }
-           int hslices = 5; 
-           int vslices = 4; 
-           vec3 d;
-           vec3 n;
-           for (int i = 0; i < hslices; i ++) {
-              float vTheta0 = PI / hslices * i - PI / 2;
-              float cosV0 = cos(vTheta0);
-              float sinV0 = sin(vTheta0);
-              float vTheta1 = PI / hslices * (i + 1) - PI / 2;
-              float cosV1 = cos(vTheta1);
-              float sinV1 = sin(vTheta1);
-              vec3 c0 = center + dir * len / 2 * sinV0;
-              vec3 c1 = center + dir * len / 2 * sinV1;
-              vec3 r0 = right * cosV0;
-              vec3 r1 = right * cosV1;
-              vertex_color=vec4(colors.x,colors.y,colors.z,1.0);
-              for (int j = 0; j <= vslices; j ++) {
-                 float hL = map(hairLeng,0.,1.,0.,60.);
-                 vertex_color=vec4(colors.y,colors.z,colors.x,1.0);
-                 d = quaternionRotation(r0, TWO_PI * j / vslices, dir);
-                 vec4 pp1 = modelViewMatrix * vec4(c0 * d * radius*hL, 1.0);
-                 //pp1.x+=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp1.x*time,pp1.x));
-                 //pp1.y+=snoise(vec2(pp1.y*time,pp1.x));
-                 //pp1.z+=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp1.z*time,pp1.x));
-                 gl_Position = projectionMatrix * pp1;
-                 normal = normalize(d + normalize(c0) / 2.0);
-                 EmitVertex();
-                 vertex_color=vec4(colors.z,colors.x,colors.y,1.0)*time;
-                 d = quaternionRotation(r1, TWO_PI * j / vslices, dir);
-                 vec4 pp2 =  modelViewMatrix * vec4(c1 * d * radius*hL, 1.0);
-                 //pp2.x-=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp2.x*time,pp2.x));
-                 //pp2.y+=snoise(vec2(pp2.y*time,pp2.x));
-                 //pp2.z-=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp2.z*time,pp2.x));
-                 gl_Position = projectionMatrix * pp2;
-                 normal = normalize(d + normalize(c1) / 2.0);
-                 EmitVertex();
-                 /*vertex_color=vec4(colors.z,colors.x,colors.y,1.0);
-                 d = quaternionRotation(r1, TWO_PI * j / vslices, dir);
-                 vec4 pp3 =  modelViewMatrix * vec4(c1 + d * radius, 1.0);
-                 pp3.x+=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp3.x*time,pp3.x));
-                 pp3.y+=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp3.y*time,pp3.x));
-                 pp3.z+=map(hairLeng,0.,1.,0.,100.)*snoise(vec2(pp3.z*time,pp3.x));
-                 gl_Position = projectionMatrix * pp3;
-                 normal = normalize(d + normalize(c0*c1) / 2.0);
-                 EmitVertex();*/
-                 }
-             }
-        }
-	void polygonE(mat4 projectionMatrix, mat4 modelViewMatrix){}
-	void polygonF(mat4 projectionMatrix, mat4 modelViewMatrix){}
+	    float bbWidth=0.5;
+	    float bbHeight=1.0;
+	    float ctime=time+2.5;
+	    float spriteOffset=0.1;
+	    vec3 pos = gl_in[0].gl_Position.xyz;
+	    vec3 p0 = gl_in[0].gl_Position.xyz;
+            vec3 p1 = gl_in[1].gl_Position.xyz;
+            vec3 up = vec3(0, 0, 1);
+            vec3 dir = normalize(p1 - p0);
+            vec3 right = normalize(cross(dir, up));
+            vec3 d;
+	    vec3 toCamera = dir; 
+	    right*=bbWidth;
+	    up *= bbHeight * hairLeng;
+	    pos -= (right * 0.5);
+	    pos.z=gl_in[0].gl_Position.z;
+
+            d = quaternionRotation(pos, TWO_PI * hairLeng, dir);
+	    gl_Position = projectionMatrix * modelViewMatrix * vec4(p0 + d * hairLeng, 1.0);
+            vertex_color = vec4(colors.x,colors.y,colors.z, 1.0);
+	    EmitVertex();
+
+	    pos.y += 1.0;
+            d = quaternionRotation(pos, TWO_PI * hairLeng, dir);
+	    gl_Position = projectionMatrix * modelViewMatrix * vec4(p0 + d * hairLeng, 1.0);
+            vertex_color = vec4(colors.x-0.1,colors.y-0.1,colors.z-0.1, 1.0);
+	    EmitVertex();
+
+	    pos.y -= 1.0;
+	    pos += right;
+            d = quaternionRotation(pos, TWO_PI * hairLeng, dir);
+	    gl_Position = projectionMatrix * modelViewMatrix * vec4(p1 + d * hairLeng, 1.0);
+            vertex_color = vec4(colors.x-0.15,colors.y-0.15,colors.z-0.15, 1.0);
+	    EmitVertex();
+
+	    pos.y += 1.0;
+            d = quaternionRotation(pos, TWO_PI * hairLeng, dir);
+	    gl_Position = projectionMatrix * modelViewMatrix * vec4(p1 + d * hairLeng, 1.0);
+            vertex_color = vec4(colors.x-0.2,colors.y-0.2,colors.z-0.2, 1.0);
+	    EmitVertex();
+	}
+
+	void polygonE(mat4 projectionMatrix, mat4 modelViewMatrix){
+		float SPEED = 5.0;
+		float OFFSET = 25.0;
+		float xtime = 0.004 + time;
+		float radius  = hairLeng *55.5f* xtime;
+		vec3 a = vec3(gl_in[1].gl_Position - gl_in[0].gl_Position);
+		vec3 b = vec3(gl_in[2].gl_Position - gl_in[0].gl_Position);
+		vec3 center = vec3(gl_in[0].gl_Position + gl_in[1].gl_Position + gl_in[2].gl_Position) / 3.0;
+		vec3 normal = normalize(cross(b, a));
+                for(int j = 0; j < gl_in.length(); j++) {
+		    vec3 newVertex;
+		    newVertex = normal * cos(time * SPEED + gl_in[j].gl_Position.x) *radius* OFFSET + vec3(gl_in[j].gl_Position.xyz);
+		    gl_Position = projectionMatrix * modelViewMatrix * vec4(newVertex, 1.0);
+	            vertex_color = vec4(colors.x,colors.y,colors.z, 1.0);
+		    EmitVertex();
+		}
+	}
+	void polygonF(mat4 projectionMatrix, mat4 modelViewMatrix){
+		vec3 a = vec3(gl_in[1].gl_Position - gl_in[0].gl_Position);
+                vec3 b = vec3(gl_in[2].gl_Position - gl_in[0].gl_Position);
+                vec3 center = vec3(gl_in[0].gl_Position + gl_in[1].gl_Position + gl_in[2].gl_Position) / 3.0;
+                vec3 normal = normalize(cross(b, a));
+		float xtime = 0.004 + time;
+		float radius  = hairLeng *55.5f* xtime;
+	        for(int j = 0; j < gl_in.length(); j++) {
+		    vec3 newVertex;
+		    newVertex = center * normal * cos(xtime * TWO_PI + gl_in[j].gl_Position.x) * radius * PI + vec3(gl_in[j].gl_Position.xyz);
+		    gl_Position = projectionMatrix * modelViewMatrix * vec4(newVertex, 1.0);
+	            vertex_color = vec4(colors.x,colors.y,colors.z, 1.0);
+		    EmitVertex();
+		}
+	}
 
 	void main() {
 	   mat4 modelViewMatrix = viewMatrix * modelMatrix;

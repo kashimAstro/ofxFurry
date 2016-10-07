@@ -8,6 +8,7 @@ class ofApp : public ofBaseApp{
    ofEasyCam cam;
    ofxFurry furry;
    ofxAssimpModelLoader model;
+   ofImage texture;
    ofMesh mesh;
    bool guiHide;
       
@@ -19,6 +20,8 @@ class ofApp : public ofBaseApp{
    ofParameter<ofVec3f> color;
    ofParameter<int> types;
    ofParameter<int> pol;
+   ofParameter<int> speedanim;
+
    ofRectangle rectangle;
    
    void exit();

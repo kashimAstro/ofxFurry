@@ -38,6 +38,11 @@ void ofApp::resolutionIco(int & val){
 
 void ofApp::update(){
 	ofSetWindowTitle(ofToString(ofGetFrameRate()));
+        furry.setStripLength(hair);
+        furry.setTranslate(translate);
+        furry.setMoveTime(ofGetElapsedTimef()*timer);
+        furry.setColors(color);
+        furry.setTypes(types);	
 }
 
 void ofApp::draw(){
@@ -47,27 +52,27 @@ void ofApp::draw(){
 	if(wireframe){
 	 if(mod){
 	    if(pol == 1){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       sphere.draw();
 	       furry.end();
 	       }
 	    if(pol == 2){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       ico.draw();
 	       furry.end();
 	       }
 	    if(pol == 3){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       cone.draw();
 	       furry.end();
 	       }
 	    if(pol == 4){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       cylinder.draw();
 	       furry.end();
 	       }
   	  if(pol == 5){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       box.draw();
 	       furry.end();
 	       }
@@ -75,27 +80,27 @@ void ofApp::draw(){
 	}else{
 	 if(mod){
 	    if(pol == 1){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       sphere.drawWireframe();
 	       furry.end();
 	       }
 	    if(pol == 2){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       ico.drawWireframe();
 	       furry.end();
 	       }
 	    if(pol == 3){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       cone.drawWireframe();
 	       furry.end();
   	     }
 	    if(pol == 4){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       cylinder.drawWireframe();
 	       furry.end();
 	       }
 	    if(pol == 5){
-	       furry.begin(cam,hair,translate,ofGetElapsedTimef()*timer,color,types);
+	       furry.begin(cam);
 	       box.drawWireframe();
 	       furry.end();
 	       }

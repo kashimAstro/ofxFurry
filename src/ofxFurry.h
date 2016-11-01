@@ -6,6 +6,7 @@
 	#include "ofxKinect.h"
 	#include "THKinect.h"
 //#endif
+#include "furryPrimitive.h"
 
 class ofxFurry {
  public:

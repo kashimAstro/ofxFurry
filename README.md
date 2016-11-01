@@ -2,7 +2,12 @@ This branch is under construction, the geometry shader GPU part is yet to be det
 
 return in a few days for addons stable.
 
-
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/1n.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/2n.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/3n.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/4n.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/5n.png)
+![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/6n.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/1.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/2.png)
 ![alt tag](https://github.com/kashimAstro/ofxFurry/blob/of_0.9RC2/screen/3.png)

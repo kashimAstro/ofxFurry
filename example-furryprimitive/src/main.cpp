@@ -55,18 +55,11 @@ class ofApp : public ofBaseApp{
 		}
 
 		void changePrimitive(int & v){
-			if(v == 1){
-				scale.set(ofVec3f(1,1,10));
-			}
-			if(v == 2){
-				scale.set(ofVec3f(2,1,8));
-			}
-			if(v == 3){
-				scale.set(ofVec3f(0.32,0.2,10));
-			}
-			if(v == 4){
-				scale.set(ofVec3f(2,1,1));
-			}
+			if(v == 0) scale.set(ofVec3f(1,1,1.22));
+			if(v == 1) scale.set(ofVec3f(1,1,10));
+			if(v == 2) scale.set(ofVec3f(1,1,8));
+			if(v == 3) scale.set(ofVec3f(0.32,0.2,10));
+			if(v == 4) scale.set(ofVec3f(1,1,1));
 
 			furryprimitive.primitive(v);
 		}

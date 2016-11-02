@@ -1,8 +1,9 @@
 #pragma once
 #include "ofMain.h"
+#include "type.h"
 #include "glsl.h"
 //#ifdef KINECT_MODE
-//        #pragma message("KINECT_MODE=ACTIVED")
+//      #pragma message("KINECT_MODE=ACTIVED")
 	#include "ofxKinect.h"
 	#include "THKinect.h"
 //#endif

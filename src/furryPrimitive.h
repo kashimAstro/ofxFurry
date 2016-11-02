@@ -80,12 +80,126 @@ class FurryPrimitive
 				}
 				mesh = ribbon(points,ofRandom(10,55));
 			}
+			if(prim == 6)
+			{
+				ofMesh app;
+				ofConePrimitive cone;
+		                app.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+                	        for(int k = 0; k < 4; k++)
+	                        {
+        	                        cone.set(20,100,6,6);
+	                                for(int i = 0; i < cone.getMesh().getVertices().size();i++)
+        	                                cone.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								cone.getMesh().getVertices()[i].x,
+								cone.getMesh().getVertices()[i].y+(k*200),
+								cone.getMesh().getVertices()[i].z
+	                                        );
+	                                app.append(cone.getMesh());
+        	                }
+				mesh = app;
+			}
+			if(prim == 7)
+			{
+				ofMesh app;
+				ofSpherePrimitive sphere;
+		                app.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+                	        for(int k = 0; k < 4; k++)
+	                        {
+        	                        sphere.set(20,4);
+	                                for(int i = 0; i < sphere.getMesh().getVertices().size();i++)
+        	                                sphere.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								sphere.getMesh().getVertices()[i].x,
+								sphere.getMesh().getVertices()[i].y+(k*100),
+								sphere.getMesh().getVertices()[i].z
+	                                        );
+	                                app.append(sphere.getMesh());
+        	                }
+				mesh = app;
+			}
+			if(prim == 8)
+			{
+				ofMesh app;
+				ofCylinderPrimitive cyl;
+		                app.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+                	        for(int k = 0; k < 4; k++)
+	                        {
+        	                        cyl.set(6,50);
+	                                for(int i = 0; i < cyl.getMesh().getVertices().size();i++)
+        	                                cyl.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								cyl.getMesh().getVertices()[i].x,
+								cyl.getMesh().getVertices()[i].y+(k*200),
+								cyl.getMesh().getVertices()[i].z
+	                                        );
+	                                app.append(cyl.getMesh());
+        	                }
+				mesh = app;
+			}
+			if(prim == 9)
+			{
+				ofMesh app;
+				ofIcoSpherePrimitive ico;
+		                app.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+                	        for(int k = 0; k < 4; k++)
+	                        {
+        	                        ico.set(10,0.5);
+	                                for(int i = 0; i < ico.getMesh().getVertices().size();i++)
+        	                                ico.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								ico.getMesh().getVertices()[i].x,
+								ico.getMesh().getVertices()[i].y+(k*100),
+								ico.getMesh().getVertices()[i].z
+	                                        );
+	                                app.append(ico.getMesh());
+        	                }
+				mesh = app;
+			}
+
+			if(prim == 10)
+			{
+				ofMesh app;
+				ofIcoSpherePrimitive ico;
+				ofCylinderPrimitive cyl;
+		                app.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+                	        for(int k = 0; k < 4; k++)
+	                        {
+        	                        ico.set(10,0.5);
+        	                        cyl.set(5,25);
+	                                for(int i = 0; i < ico.getMesh().getVertices().size();i++)
+					{
+        	                                ico.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								ico.getMesh().getVertices()[i].x,
+								ico.getMesh().getVertices()[i].y+(k*100),
+								ico.getMesh().getVertices()[i].z
+	                                        );
+					}
+	                                for(int i = 0; i < cyl.getMesh().getVertices().size();i++)
+					{
+					        cyl.getMesh().getVertices()[i] +=
+	                                                ofVec3f(
+								cyl.getMesh().getVertices()[i].x,
+								cyl.getMesh().getVertices()[i].y+(k*100),
+								cyl.getMesh().getVertices()[i].z
+	                                        );
+
+					}
+					if(k % 2 == 0)
+		                                app.append(ico.getMesh());
+					else
+		                                app.append(cyl.getMesh());
+        	                }
+				mesh = app;
+			}
+
+
 			mesh.setUsage(GL_STATIC_DRAW);
                         //mesh.getTexCoords().resize(matrices.size());
                         //for(size_t i=0;i<mesh.getTexCoords().size();i++)
                         //mesh.getTexCoords()[i] = ofVec2f(i*2,i*2);
                         //mesh.getVbo().setAttributeDivisor(ofShader::TEXCOORD_ATTRIBUTE,1);
-
 		}
 
 		void setup(ofMesh _m){

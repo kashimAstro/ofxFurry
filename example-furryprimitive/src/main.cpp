@@ -24,9 +24,9 @@ class ofApp : public ofBaseApp{
 
 		void setup(){
 			gui.setup();
-			gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(20) ));
+			gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(5) ));
 			gui.add(speedanim.set("speed animation", 0,0,2000 ));
-			gui.add(changeprimitive.set("changeprimitive", 0,0,5));
+			gui.add(changeprimitive.set("changeprimitive", 0,0,10));
 			gui.add(wirefill.set("wire or fill",false));
 			gui.add(direction.set("direction", ofVec3f(-3.06,-3.06,1),ofVec3f(-50),ofVec3f(50) ));
 			gui.add(rangeorien.set("range orientation", 1,1,25));
@@ -65,6 +65,8 @@ class ofApp : public ofBaseApp{
 		}
 
 		void update(){
+			ofSetWindowTitle(ofToString(ofGetFrameRate()));
+
 			furryprimitive.setTexture(texture[pcounter]);
 			furryprimitive.setRangeOrientation(rangeorien);
 			furryprimitive.setRangeScale(rangescale);
@@ -89,7 +91,6 @@ class ofApp : public ofBaseApp{
 			camera.end();
                         ofDisableDepthTest();
 
-			ofDrawBitmapString(ofGetFrameRate(),20,20);
 			gui.draw();
 		}
 

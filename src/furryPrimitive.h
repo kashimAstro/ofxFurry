@@ -16,6 +16,8 @@ class FurryPrimitive
 		int rangeorien;
 		int rangescale;
 		ofVec3f scale;
+		bool noise;
+		float valueNoise;
 
 		void setRangeOrientation(int _r){
 			rangeorien = _r;
@@ -36,6 +38,11 @@ class FurryPrimitive
 		void setTexture(ofImage _i){
 			ofDisableArbTex();
 			texture = _i;
+		}
+
+		void setNoise(float _t, bool _n){
+			noise = _n;
+			valueNoise = _t;
 		}
 
 		void primitive(int prim){
@@ -203,6 +210,7 @@ class FurryPrimitive
 		}
 
 		void setup(ofMesh _m){
+			noise = false;
 			direction = ofVec3f(-1,-2,1);
 			rangeorien = 1;
 			rangescale = 1;
@@ -312,14 +320,27 @@ class FurryPrimitive
 
 		void update(ofMesh _m){
                         xmesh = _m;
-		        float time = ofGetElapsedTimef();
+
 		        for(size_t i=0;i<xmesh.getNumVertices();i++){
 	                	ofNode node;
-		                ofVec3f pos(
-	                	        xmesh.getVertex(i).x,
-	                	        xmesh.getVertex(i).y,
-	                	        xmesh.getVertex(i).z
-				);
+				ofVec3f pos;
+				if(!noise)
+				{
+		                	pos.set(
+		                	        xmesh.getVertex(i).x,
+	                		        xmesh.getVertex(i).y,
+	        	        	        xmesh.getVertex(i).z
+					);
+				}
+				else
+				{
+					float t = (valueNoise + i);
+				 	pos.set(
+                			        xmesh.getVertex(i).x * ofNoise(t),
+		               		        xmesh.getVertex(i).y * ofNoise(t),
+		       	        	        xmesh.getVertex(i).z * ofNoise(t)
+					);
+				}
 				ofVec3f rot(
 					xmesh.getVertex(i).x*direction.x,
 					xmesh.getVertex(i).y*direction.y,
@@ -334,13 +355,10 @@ class FurryPrimitive
 		        buffer.updateData(0,matrices);
 		}
 
-		void draw(bool wirefill=true){
+		void draw(ofPolyRenderMode type){
 			shader.begin();
 			shader.setUniformTexture("texture",texture.getTexture(),1);
-			if(wirefill)
-				mesh.drawInstanced(OF_MESH_FILL,matrices.size());
-			else
-				mesh.drawInstanced(OF_MESH_WIREFRAME,matrices.size());
+			mesh.drawInstanced(type,matrices.size());
 			shader.end();
 		}
 

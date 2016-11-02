@@ -15,7 +15,10 @@ void ofApp::setup(){
 	ofSpherePrimitive sp;
 	sp.set(100,28);
 	mesh = sp.getMesh();
+
+	furryprimitive.setCustomMesh(sp.getMesh()); //<-- use this method for custom mesh furry
 	furryprimitive.setup(mesh);
+
 	texture.load("texture.jpg");
 
 	camera.setDistance(ofGetWidth()*6);

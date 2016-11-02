@@ -16,7 +16,7 @@ class FurryPrimitive
 		int rangeorien;
 		int rangescale;
 		ofVec3f scale;
-		bool noise;
+		bool noise,CustomMesh;
 		float valueNoise;
 
 		void setRangeOrientation(int _r){
@@ -43,6 +43,12 @@ class FurryPrimitive
 		void setNoise(float _t, bool _n){
 			noise = _n;
 			valueNoise = _t;
+		}
+
+		void setCustomMesh(ofMesh _m){
+			mesh = _m;
+			mesh.setUsage(GL_STATIC_DRAW);
+			CustomMesh = true;
 		}
 
 		void primitive(int prim){
@@ -315,7 +321,8 @@ class FurryPrimitive
 		        shader.setUniformTexture("tex",tex,0);
 		        shader.end();
 
-			primitive(0);
+			if(!CustomMesh)
+				primitive(0);
 		}
 
 		void update(ofMesh _m){

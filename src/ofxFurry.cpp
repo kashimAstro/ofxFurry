@@ -1,5 +1,6 @@
 #include "ofxFurry.h"
 
+//#ifdef KINECT_MODE
 void ofxFurry::exit(){
 //	tkinect.exit();
 }
@@ -51,7 +52,8 @@ void ofxFurry::kinectMesh(int i){
 void ofxFurry::update(ofxKinect * kinect){
 	tkinect.update(kinect);
 }
-//#else
+//#endif
+
 void ofxFurry::setup(){
 	colors    = ofVec3f(0.2,0.3,0.9);
 	translate = ofVec3f(0,0,0);

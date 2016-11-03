@@ -13,10 +13,9 @@ void ofApp::setup(){
 	changeprimitive.addListener(this,&ofApp::changePrimitive);
 
 	ofSpherePrimitive sp;
-	sp.set(100,28);
+	sp.set(100,45);
 	mesh = sp.getMesh();
 
-	furryprimitive.setCustomMesh(sp.getMesh()); //<-- use this method for custom mesh furry
 	furryprimitive.setup(mesh);
 
 	texture.load("texture.jpg");
@@ -31,7 +30,7 @@ void ofApp::changePrimitive(int & v){
 	if(v == 2) scale.set(ofVec3f(1,1,8));
 	if(v == 3) scale.set(ofVec3f(0.32,0.2,10));
 	if(v == 4) scale.set(ofVec3f(1,1,1));
-	furryprimitive.primitive(v);
+	furryprimitive.setPrimitive(v);
 }
 
 //--------------------------------------------------------------

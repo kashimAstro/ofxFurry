@@ -18,6 +18,7 @@ class FurryPrimitive
 		ofVec3f scale;
 		bool noise,CustomMesh;
 		float valueNoise;
+		int resizedMesh;
 
 		void setRangeOrientation(int _r){
 			rangeorien = _r;
@@ -51,7 +52,7 @@ class FurryPrimitive
 			CustomMesh = true;
 		}
 
-		void primitive(int prim){
+		void setPrimitive(int prim){
 			if(prim == 0)
 			{
 				ofConePrimitive cone;
@@ -216,6 +217,7 @@ class FurryPrimitive
 		}
 
 		void setup(ofMesh _m){
+			resizedMesh = 25;
 			noise = false;
 			direction = ofVec3f(-1,-2,1);
 			rangeorien = 1;
@@ -322,7 +324,7 @@ class FurryPrimitive
 		        shader.end();
 
 			if(!CustomMesh)
-				primitive(0);
+				setPrimitive(0);
 		}
 
 		void update(ofMesh _m){
@@ -353,13 +355,41 @@ class FurryPrimitive
 					xmesh.getVertex(i).y*direction.y,
 					xmesh.getVertex(i).z*direction.z
 				);
-				pos *= 25;
+				pos *= resizedMesh;
 		                node.setPosition(pos);
 		                if(i % rangeorien == 0) node.setOrientation(rot);
 				if(i % rangescale == 0) node.setScale(scale);
                 		matrices[i] = node.getLocalTransformMatrix();
 		        }
 		        buffer.updateData(0,matrices);
+		}
+		
+		ofMesh getMeshResized(){
+			ofMesh tmp = xmesh;	
+                        for(int i = 0; i < tmp.getVertices().size();i++)
+			{
+				if(!noise)
+				{
+			        	tmp.getVertices()[i] +=
+        	                        ofVec3f(
+						tmp.getVertices()[i].x,
+						tmp.getVertices()[i].y,
+						tmp.getVertices()[i].z
+		                               )*(resizedMesh-1);
+
+				}
+				else
+				{
+					float t = (valueNoise + i);
+					tmp.getVertices()[i] +=
+        	                        ofVec3f(
+						tmp.getVertices()[i].x * ofNoise(t),
+						tmp.getVertices()[i].y * ofNoise(t),
+						tmp.getVertices()[i].z * ofNoise(t)
+		                               )*(resizedMesh-1);
+				}
+			}
+			return tmp;
 		}
 
 		void draw(ofPolyRenderMode type){

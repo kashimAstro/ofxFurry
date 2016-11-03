@@ -1,9 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxAssimpModelLoader.h"
 #include "ofxGui.h"
 #include "ofxFurry.h"
+#include "ofxAssimpModelLoader.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -26,17 +26,12 @@ class ofApp : public ofBaseApp{
 		FurryPrimitive furryprimitive;
                 ofVboMesh mesh,meshWire;
                 ofEasyCam camera;
-                ofxAssimpModelLoader model;
-                vector<ofImage> texture;
-                float animationPosition;
-                int acounter,pcounter;
+                ofImage texture;
                 ofxPanel gui;
                 ofParameter<ofVec3f> scale;
-                ofParameter<float> speedanim;
-                ofParameter<int>   changeprimitive;
-                ofParameter<bool>  wirefill;
                 ofParameter<ofVec3f> direction;
                 ofParameter<int> rangeorien;
                 ofParameter<int> rangescale;
-                void changePrimitive(int & v);
+                ofParameter<bool> wirefill,stopNoise;
+		ofxAssimpModelLoader model;
 };

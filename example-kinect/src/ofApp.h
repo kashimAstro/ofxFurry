@@ -1,6 +1,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ofxGui.h"
+#define KINECT_MODE
 #include "ofxKinect.h"
 #include "ofxFurry.h"
 

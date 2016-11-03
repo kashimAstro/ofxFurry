@@ -3,7 +3,7 @@
 #include "type.h"
 #include "glsl.h"
 //#ifdef KINECT_MODE
-//      #pragma message("KINECT_MODE=ACTIVED")
+        #pragma message("KINECT_MODE=ACTIVED")
 	#include "ofxKinect.h"
 	#include "THKinect.h"
 //#endif
@@ -12,18 +12,21 @@
 class ofxFurry {
  public:
    ofShader shader;
+//#ifdef KINECT_MODE
    THKinect tkinect;
+//#endif
    glsl glslContext;
    ofMatrix4x4 Mmat;
    bool Mcheck;
    int dist1,dist2;
+//#ifdef KINECT_MODE
    void setSteps(int steps);
    void setDistance1(int dist);
    void setDistance2(int dist2);
    void kinectMesh(int i);   
    void setupKinect(int _dist1=1100, int _dist2=1200);
    void update(ofxKinect *kinect);
-
+//#endif
    void setStripLength(float _len);
    void setTranslate(ofVec3f _tr);
    void setMoveTime(float _time);

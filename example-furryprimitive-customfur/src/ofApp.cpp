@@ -29,6 +29,8 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofSetWindowTitle(ofToString(ofGetFrameRate()));
+        direction.set(ofVec3f(ofNoise(ofGetElapsedTimef()*0.5),direction->y,direction->z));
+
         furryprimitive.setTexture(texture);
         furryprimitive.setRangeOrientation(rangeorien);
         furryprimitive.setRangeScale(rangescale);

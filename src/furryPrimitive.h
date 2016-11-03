@@ -343,11 +343,11 @@ class FurryPrimitive
 				}
 				else
 				{
-					float t = (valueNoise + i);
+					float t = (valueNoise);
 				 	pos.set(
-                			        xmesh.getVertex(i).x * ofNoise(t),
-		               		        xmesh.getVertex(i).y * ofNoise(t),
-		       	        	        xmesh.getVertex(i).z * ofNoise(t)
+                			        xmesh.getVertex(i).x+ofNoise(t),
+		               		        xmesh.getVertex(i).y+ofNoise(t),
+		       	        	        xmesh.getVertex(i).z+ofNoise(t)
 					);
 				}
 				ofVec3f rot(
@@ -368,8 +368,8 @@ class FurryPrimitive
 			ofMesh tmp = xmesh;	
                         for(int i = 0; i < tmp.getVertices().size();i++)
 			{
-				if(!noise)
-				{
+				//if(!noise)
+				//{
 			        	tmp.getVertices()[i] +=
         	                        ofVec3f(
 						tmp.getVertices()[i].x,
@@ -377,7 +377,7 @@ class FurryPrimitive
 						tmp.getVertices()[i].z
 		                               )*(resizedMesh-1);
 
-				}
+				/*}
 				else
 				{
 					float t = (valueNoise + i);
@@ -387,7 +387,7 @@ class FurryPrimitive
 						tmp.getVertices()[i].y * ofNoise(t),
 						tmp.getVertices()[i].z * ofNoise(t)
 		                               )*(resizedMesh-1);
-				}
+				}*/
 			}
 			return tmp;
 		}

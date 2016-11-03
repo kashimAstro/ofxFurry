@@ -46,7 +46,9 @@ void ofApp::changePrimitive(int & v){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	//ofSetWindowTitle(ofToString(ofGetFrameRate()));
+	ofSetWindowTitle(ofToString(ofGetFrameRate()));
+
+        direction.set(ofVec3f(ofNoise(ofGetElapsedTimef()*0.5),direction->y,direction->z));
 
 	furryprimitive.setTexture(texture[pcounter]);
 	furryprimitive.setRangeOrientation(rangeorien);

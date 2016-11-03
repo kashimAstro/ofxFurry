@@ -23,7 +23,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		FurryPrimitive furryprimitive;
-                ofVboMesh mesh;
+                ofVboMesh mesh,meshWire;
                 ofEasyCam camera;
                 ofImage texture;
                 ofxPanel gui;

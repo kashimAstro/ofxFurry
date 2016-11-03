@@ -17,6 +17,7 @@ void ofApp::setup(){
 	mesh = sp.getMesh();
 
 	furryprimitive.setup(mesh);
+	meshWire = furryprimitive.getMeshResized();
 
 	texture.load("texture.jpg");
 
@@ -36,12 +37,13 @@ void ofApp::changePrimitive(int & v){
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofSetWindowTitle(ofToString(ofGetFrameRate()));
+	//direction.set(ofVec3f(ofNoise(ofGetElapsedTimef()*0.5),direction->y,direction->z));
         furryprimitive.setTexture(texture);
         furryprimitive.setRangeOrientation(rangeorien);
         furryprimitive.setRangeScale(rangescale);
         furryprimitive.setScale(scale);
         furryprimitive.setOrientation(direction);
-        furryprimitive.setNoise(ofRandom(-1.f,1.f) * .009, stopNoise);
+        furryprimitive.setNoise(ofNoise(ofGetElapsedTimef()*0.5), stopNoise);
         furryprimitive.update(mesh);
 }
 
@@ -50,6 +52,7 @@ void ofApp::draw(){
 	ofBackgroundGradient(ofColor::grey,ofColor::black);
 	ofEnableDepthTest();
 	camera.begin();
+	meshWire.drawWireframe();
 	if(wirefill)
 		furryprimitive.draw(OF_MESH_FILL);
 	else

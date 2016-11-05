@@ -2,8 +2,9 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofSetVerticalSync(false);
 	gui.setup();
-	gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(5) ));
+	gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(50) ));
 	gui.add(changeprimitive.set("changeprimitive", 0,0,10));
 	gui.add(wirefill.set("wire or fill",false));
 	gui.add(stopNoise.set("stop noise",false));
@@ -37,7 +38,7 @@ void ofApp::changePrimitive(int & v){
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofSetWindowTitle(ofToString(ofGetFrameRate()));
-	//direction.set(ofVec3f(ofNoise(ofGetElapsedTimef()*0.5),direction->y,direction->z));
+	direction.set(ofVec3f(ofNoise(ofGetElapsedTimef()*0.5),direction->y,direction->z));
         furryprimitive.setTexture(texture);
         furryprimitive.setRangeOrientation(rangeorien);
         furryprimitive.setRangeScale(rangescale);
@@ -52,7 +53,8 @@ void ofApp::draw(){
 	ofBackgroundGradient(ofColor::grey,ofColor::black);
 	ofEnableDepthTest();
 	camera.begin();
-	meshWire.drawWireframe();
+	ofSetColor(10);
+	meshWire.draw();
 	if(wirefill)
 		furryprimitive.draw(OF_MESH_FILL);
 	else

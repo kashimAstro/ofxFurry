@@ -11,7 +11,7 @@ void ofApp::setup(){
 	gui.add(rangescale.set("range scale", 1,1,25));
 
 	ofSpherePrimitive sp;
-	sp.set(100,15);
+	sp.set(100,35);
 	mesh = sp.getMesh();
 
 	model.loadModel("dummy/dummy_obj.obj",true);
@@ -20,7 +20,7 @@ void ofApp::setup(){
 	furryprimitive.setup(mesh);
 	meshWire = furryprimitive.getMeshResized();
 
-	texture.load("texture.jpg");
+	texture.load("texture2.jpg");
 
 	camera.setDistance(ofGetWidth()*6);
 	camera.setFarClip(ofGetWidth()*12);
@@ -45,8 +45,8 @@ void ofApp::draw(){
 	ofBackgroundGradient(ofColor::grey,ofColor::black);
 	ofEnableDepthTest();
 	camera.begin();
-	ofSetColor(0);
-	meshWire.drawWireframe();
+	ofSetColor(10);
+	meshWire.drawFaces();
 
 	if(wirefill)
 		furryprimitive.draw(OF_MESH_FILL);

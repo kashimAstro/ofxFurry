@@ -2,12 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+        ofSetVerticalSync(true);
+
 	gui.setup();
-	gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(5) ));
+	gui.add(scale.set("scale", ofVec3f(1),ofVec3f(0),ofVec3f(50) ));
 	gui.add(speedanim.set("speed animation", 0,0,2000 ));
 	gui.add(changeprimitive.set("changeprimitive", 0,0,10));
 	gui.add(wirefill.set("wire or fill",false));
-	gui.add(direction.set("direction", ofVec3f(-3.06,-3.06,1),ofVec3f(-50),ofVec3f(50) ));
+	gui.add(direction.set("direction", ofVec3f(-3.06,-3.06,6.603),ofVec3f(-50),ofVec3f(50) ));
 	gui.add(rangeorien.set("range orientation", 1,1,25));
 	gui.add(rangescale.set("range scale", 1,1,25));
 	changeprimitive.addListener(this,&ofApp::changePrimitive);
@@ -72,8 +74,10 @@ void ofApp::draw(){
 
         ofEnableDepthTest();
         camera.begin();
-	ofSetColor(0);
-	meshWire.drawWireframe();
+	texture[pcounter].getTexture().bind();
+	meshWire.draw();
+	texture[pcounter].getTexture().unbind();
+
         if(wirefill)
                 furryprimitive.draw(OF_MESH_FILL);
         else

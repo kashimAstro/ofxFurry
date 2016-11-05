@@ -44,7 +44,7 @@ void ofApp::update(){
         furryprimitive.setRangeScale(rangescale);
         furryprimitive.setScale(scale);
         furryprimitive.setOrientation(direction);
-        furryprimitive.setNoise(ofNoise(ofGetElapsedTimef()*0.5), stopNoise);
+        furryprimitive.setNoise(ofNoise(ofGetElapsedTimef()*4.5), stopNoise);
         furryprimitive.update(mesh);
 }
 
